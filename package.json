@@ -1,0 +1,32 @@
+{
+  "name": "discord-bot-churban-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RVCC-IDMX/discord-bot-CHURBAN-stack.git"
+  },
+  "keywords": [],
+  "author": "Christopher House <Chur6798@Stu.raritanval.edu> (https://github.com/CHURBAN-stack)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RVCC-IDMX/discord-bot-CHURBAN-stack/issues"
+  },
+  "homepage": "https://github.com/RVCC-IDMX/discord-bot-CHURBAN-stack#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0"
+  }
+}
