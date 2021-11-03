@@ -11,7 +11,7 @@
         "ecmaVersion": 12
     },
     "rules": {
-        "no-console": "off", 
-        "no-trailing-spaces": "error"
+    "no-console": "off",
+    "no-trailing-spaces": "error"
     }
 }
