@@ -43,10 +43,10 @@ client.on('messageCreate', (message) => {
         \`\`\`
         `,
       })
-      .then() => console.log(`Replied to message "${message.content}"`)
+      .then(() => console.log(`Replied to message "${message.content}"`))
+
       .catch(console.error);
     }
   });
 
 client.login(process.env.TOKEN);
-
