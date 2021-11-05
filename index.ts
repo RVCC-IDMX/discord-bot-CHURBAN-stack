@@ -1,9 +1,8 @@
 import DiscordJS, { Intents } from 'discord.js';
 import dotenv from 'dotenv';
-import cowsay from 'cowsay';
-dotenv.config();
+import cowsay from './utils/cowsay';
 
-import { IOptions } from 'cowsay'; // optional
+dotenv.config();
 
 const client = new DiscordJS.Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -34,18 +33,7 @@ client.on('messageCreate', (message) => {
       .react('🦁')
       .then(() => console.log(`Reacted to message "${message.content}"`))
       .catch(console.error);
-
-    let opts: IOptions = {
-      text: 'Hello everyone!',
-      e: '^^',
-      r: true,
-      // f: 'radio',
-    };
-    let output: string = cowsay.say(opts);
-    if (output.length > 2000) {
-      output = 'Darn cows sleeping';
-    }
-    console.log(output);
+    const output = cowsay();
     message
       .reply({
         content: `
