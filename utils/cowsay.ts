@@ -1,5 +1,6 @@
 import cowsay from 'cowsay';
 import { IOptions } from 'cowsay'; // optional
+import getRandomInt from './random';
 
 export default function () {
   let opts: IOptions = {
