@@ -1,10 +1,15 @@
 import cowsay from 'cowsay';
 import { IOptions } from 'cowsay'; // optional
 import getRandomInt from './random';
+import quotes from './quotes.json';
 
 export default function () {
+  const idx = getRandomInt(0, quotes.length);
+  const quoteOBJ = quotes[idx];
+  const text = `${quoteOBJ.quote} - ${quoteOBJ.author}`;
+
   let opts: IOptions = {
-    text: 'Hello everyone!',
+    text: text,
     e: '^^',
     r: true,
     // f: 'radio',
