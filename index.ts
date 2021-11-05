@@ -38,8 +38,8 @@ client.on('messageCreate', (message) => {
     let opts: IOptions = {
       text: 'Hello everyone!',
       e: '^^',
-      // r: true,
-      f: 'radio',
+      r: true,
+      // f: 'radio',
     };
     let output: string = cowsay.say(opts);
     if (output.length > 2000) {
