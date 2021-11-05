@@ -12,11 +12,10 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', (message) => {
-
   /*  ping */
   if (message.content === 'ping') {
     message
-      .react('🤔')
+      .react('🐿️')
       .then(() => console.log(`Reacted to message "${message.content}"`))
       .catch(console.error);
     message
@@ -30,10 +29,10 @@ client.on('messageCreate', (message) => {
   /* cowsay */
   if (message.content === 'cowsay') {
     message
-      .react('')
+      .react('🦁')
       .then(() => console.log(`Reacted to message "${message.content}"`))
       .catch(console.error);
-      let output: string = cowsay.say({ text: 'Hello from typescript!' });
+    let output: string = cowsay.say({ text: 'Hello from typescript!' });
     console.log(output);
     message
       .reply({
@@ -46,7 +45,7 @@ client.on('messageCreate', (message) => {
       .then(() => console.log(`Replied to message "${message.content}"`))
 
       .catch(console.error);
-    }
-  });
+  }
+});
 
 client.login(process.env.TOKEN);
