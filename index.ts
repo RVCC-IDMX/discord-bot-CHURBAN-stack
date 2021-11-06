@@ -4,6 +4,9 @@ import cowsay from './utils/cowsay';
 
 dotenv.config();
 
+//Bot Code for Prefix:
+const PREFIX = process.env.PREFIX || 'ch#';
+
 const client = new DiscordJS.Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
@@ -13,8 +16,16 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', (message) => {
+  if (!message.content.startsWith(PREFIX)) return;
+  const args = message.content
+    .toLowerCase()
+    .substring(PREFIX.length)
+    .slice()
+    .trim()
+    .split(/ /);
+  const command = args.shift();
   /*  ping */
-  if (message.content === 'ping') {
+  if (command === 'ping') {
     message
       .react('🐿️')
       .then(() => console.log(`Reacted to message "${message.content}"`))
@@ -28,7 +39,7 @@ client.on('messageCreate', (message) => {
   }
 
   /* cowsay */
-  if (message.content === 'cowsay') {
+  if (command === 'cowsay') {
     message
       .react('🦁')
       .then(() => console.log(`Reacted to message "${message.content}"`))
@@ -48,4 +59,5 @@ client.on('messageCreate', (message) => {
   }
 });
 
+//Token Code:
 client.login(process.env.TOKEN);

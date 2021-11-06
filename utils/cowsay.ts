@@ -4,10 +4,12 @@ import getRandomInt from './random';
 import quotes from './quotes.json';
 
 export default function () {
+  //A random number is generated
   const idx = getRandomInt(0, quotes.length);
   const quoteOBJ = quotes[idx];
   const text = `${quoteOBJ.quote} - ${quoteOBJ.author}`;
 
+  //Make use of IOptions to enchance the text;
   let opts: IOptions = {
     text: text,
     e: '^^',
