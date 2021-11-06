@@ -3,7 +3,7 @@ import { IOptions } from 'cowsay'; // optional
 import getRandomInt from './random';
 import quotes from './quotes.json';
 
-export default function () {
+export default function (cow: string = 'random') {
   //A random number is generated
   const idx = getRandomInt(0, quotes.length);
   const quoteOBJ = quotes[idx];
@@ -16,7 +16,17 @@ export default function () {
     r: true,
     // f: 'radio',
   };
-  let output: string = cowsay.say(opts);
+
+  if (cow !== 'random') {
+    opts.r = false;
+    opts.f = cow;
+  }
+  let output;
+  try {
+    output = cowsay.say(opts);
+  } catch {
+    output = 'That cow does not exist';
+  }
   if (output.length > 2000) {
     output = 'Darn cows sleeping';
   }

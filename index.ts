@@ -44,7 +44,7 @@ client.on('messageCreate', (message) => {
       .react('🦁')
       .then(() => console.log(`Reacted to message "${message.content}"`))
       .catch(console.error);
-    const output = cowsay();
+    const output = cowsay(args[0]);
     message
       .reply({
         content: `
