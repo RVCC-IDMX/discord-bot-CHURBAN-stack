@@ -1,17 +1,14 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "airbnb-base",
-        "prettier"
-    ],
-    "parserOptions": {
-        "ecmaVersion": 12
-    },
-    "rules": {
-    "no-console": "off",
-    "no-trailing-spaces": "error"
-    }
+  "name": "mypackage",
+  "version": "0.0.1",
+  "eslintConfig": {
+      "env": {
+          "browser": true,
+          "node": true
+      }
+  },
+  "eslintIgnore": ["hello.js", "world.js"]
 }
+.cache
+dist
+**/node_modules/**
