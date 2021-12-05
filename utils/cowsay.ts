@@ -31,5 +31,5 @@ export default function (cow: string = 'random') {
     output = 'Darn cows sleeping';
   }
   console.log(output);
-  return output;
+  return output.replace(/```/g, "``'");
 }
