@@ -26,6 +26,7 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', (message) => {
+  console.log(message.content);
   if (!channels.includes(message.channel.id)) return;
   if (!message.content.startsWith(PREFIX)) return;
   const args = message.content
