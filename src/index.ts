@@ -1,6 +1,6 @@
 import DiscordJS, { Intents } from 'discord.js';
 import dotenv from 'dotenv';
-import cowsay from './src/utils/cowsay';
+import cowsay from './utils/cowsay';
 
 dotenv.config();
 
