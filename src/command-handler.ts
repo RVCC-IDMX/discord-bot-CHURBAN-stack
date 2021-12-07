@@ -1,5 +1,4 @@
-//DEFAULT IMPORTS FOR TS:
-import { Client } from 'discord.js';
+import { Client, CommandInteraction } from 'discord.js';
 import getFiles from './get-files';
 import dotenv from 'dotenv';
 
@@ -35,4 +34,39 @@ export default (client: Client) => {
   console.log(commandFiles);
 
   console.log(commands);
+};
+
+for (const command of commandFiles) {
+let commandFile = require (command);
+if (commandFile.default) commandFile = commandFile.default;
+
+const split = command.replace(/\\/g, '/').split('');
+const commandName = split[split.length - 1].replace(suffix, '');
+commands[commandName.toLowerCase()] = commandFile;
+console.log('Loaded command: $(commandName}');
+}
+
+client.on('messageCreate', (message) => {
+console.log('message.content: ${message.content}');
+if (message.author.bot || !message.content.startWith(PREFIX)) return;
+
+console.log('message.author.username: $(message.author.username)');
+
+const args = message.content.slice(PREFIX.length).trim().split(/ +/);
+const commandName = args.shift()!.toLowerCase();
+
+console.log('commandName: ${commandName}');
+
+if (!commands[commandName]) {
+message.reply('Sorry, I cannot execute the command: $(commandName');
+return;
+}
+
+try{
+commands[commandName].callback(message,...args);
+} catch (error) {
+console.error(error);
+message.reply('there was an error trying to execute that command!');
+)
+});
 };
