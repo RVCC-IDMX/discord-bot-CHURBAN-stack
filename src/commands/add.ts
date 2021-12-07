@@ -11,6 +11,6 @@ export default {
     for (const arg of args) {
       sum += parseInt(arg);
     }
-    message.reply('The sum is ${sum}');
+    message.reply(`The sum is ${sum}`);
   },
 };
