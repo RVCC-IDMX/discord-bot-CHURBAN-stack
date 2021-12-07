@@ -6,11 +6,11 @@ import { Message } from 'discord.js';
 //TS
 export default {
   callback: (message: Message, ...args: string[]) => {
-    let sum = 1;
+    let product = 1;
 
     for (const arg of args) {
-      sum *= parseInt(arg);
+      product *= parseInt(arg);
     }
-    message.reply(`The sum is ${sum}`);
+    message.reply(`The sum is $product}`);
   },
 };
