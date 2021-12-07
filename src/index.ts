@@ -1,20 +1,8 @@
 import DiscordJS, { Intents } from 'discord.js';
+
 import dotenv from 'dotenv';
 
 dotenv.config();
-
-const CHANNELS = process.env.CHANNELS || null;
-
-if (!CHANNELS) {
-  console.error('CHANNELS is not defined');
-  process.exit(1);
-}
-
-const channels = CHANNELS.split(',');
-console.table(channels);
-
-//Bot Code for Prefix:
-const PREFIX = process.env.PREFIX || 'ch#';
 
 const client = new DiscordJS.Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
