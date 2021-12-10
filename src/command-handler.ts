@@ -1,4 +1,4 @@
-import { Client, CommandInteraction } from 'discord.js';
+import { Client, CommandInteraction, MessageEmbed } from 'discord.js';
 import getFiles from './get-files';
 import dotenv from 'dotenv';
 
@@ -43,6 +43,8 @@ export default (client: Client) => {
     commands[commandName.toLowerCase()] = commandFile;
     console.log('Loaded command: $(commandName}');
   }
+
+  //const exampleEmbed = new MessageEmbed().setTitle('Some title');
 
   client.on('messageCreate', (message) => {
     console.log('message.content: ${message.content}');
