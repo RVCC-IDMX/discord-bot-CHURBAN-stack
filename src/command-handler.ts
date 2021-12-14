@@ -41,7 +41,7 @@ export default (client: Client) => {
     const split = command.replace(/\\/g, '/').split('/');
     const commandName = split[split.length - 1].replace(suffix, '');
     commands[commandName.toLowerCase()] = commandFile;
-    console.log('Loaded command: $(commandName}');
+    console.log(`Loaded command: $(commandName}`);
   }
 
   //const exampleEmbed = new MessageEmbed().setTitle('Some title');
@@ -50,12 +50,12 @@ export default (client: Client) => {
     console.log('message.content: ${message.content}');
     if (message.author.bot || !message.content.startsWith(PREFIX)) return;
 
-    console.log('message.author.username: $(message.author.username)');
+    console.log(`message.author.username: ${message.author.username}`);
 
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
     const commandName = args.shift()!.toLowerCase();
 
-    console.log('commandName: ${commandName}');
+    console.log(`commandName: ${commandName}`);
 
     if (!commands[commandName]) {
       message.reply(`Sorry, I cannot execute the command: ${commandName}`);
